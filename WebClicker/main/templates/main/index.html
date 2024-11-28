@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('{% static "service-worker.js" %}')
+                    .then(registration => {
+                        console.log('Service Worker зарегистрирован с областью: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Регистрация Service Worker завершилась неудачей:', error);
+                    });
+            });
+        } else {
+            console.error('Service Worker не поддерживается в этом браузере.');
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rooaster Clicker</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css"/>
+    <link rel="icon" href="{% static '1.svg' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="spiner" id="spiner"></div>
+    <div class="loader-container" id="loader-container">
+        <div class="loading-text" id="loading-text">Загрузка...</div>
+        <div class="loader">
+            <div class="loader-inner" id="loader-inner" style="width: 0;"></div>
+        </div>
+    </div>
+    <div class="content" id="content">
+        <div class="container">
+            <div class="number" id="number"></div>
+            <h1 class="text_name">Petuch Coin</h1>
+            <div class="coin" id="coin">
+
+                <!--<div class="leaf"></div>-->
+            </div>
+            <!--<div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>-->
+        </div>
+        <div class="menu" id="menu">
+            <a class="button" id="button1">С</a>
+            <a class="button" id="button2">#</a>
+            <a class="button" id="button3">#</a>
+            <a class="button" id="button4">#</a>
+        </div>
+        <div class="change" id="change">
+            <div class="horizontal_line"></div>
+            <div class="course">
+                <a class="coin_text">1</a>
+                <img class='ticket_img' src="{% static 'ticket.png' %}">
+                <br/>
+                <a class="coin_text">=<a class="coin_text" id="price_text">0</a></a>
+                <h1 class="text_name right-side">Petuch Coin</h1>
+            </div>
+            <div class="count_block">
+                <a class="count_text" id="count_text">1</a>
+                <div class="schet">
+                    <a class="pl_block1" id="plus">+</a>
+                    <a class="pl_block2" id="minus">-</a>
+                </div>
+            </div>
+            <a class="change_button" id="change_button">Купить</a>
+        </div>
+    </div>
+    <script src="{% static 'rooster.js' %}"></script>
+</body>
+</html>
