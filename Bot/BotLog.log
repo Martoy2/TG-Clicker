@@ -1,0 +1,7 @@
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @RaspClickTest_bot id=7324912753 - 'Rooster Click'
+INFO:aiogram.event:Update id=321793744 is handled. Duration 546 ms by bot id=7324912753
+INFO:aiogram.event:Update id=321793745 is handled. Duration 468 ms by bot id=7324912753
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7324912753)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 7324912753)
